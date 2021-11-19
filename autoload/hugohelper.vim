@@ -20,19 +20,27 @@ function! hugohelper#TitleCase()
 endfun
 
 function! hugohelper#Draft()
+    let save_cursor = getcurpos()
     call s:set_key('draft', 'true')
+    call setpos('.', save_cursor)
 endfun
 
 function! hugohelper#Undraft()
+    let save_cursor = getcurpos()
     call s:set_key('draft', 'false')
+    call setpos('.', save_cursor)
 endfun
 
 function! hugohelper#DateIsNow()
+    let save_cursor = getcurpos()
     call s:set_key('date', s:hugo_now())
+    call setpos('.', save_cursor)
 endfun
 
 function! hugohelper#LastmodIsNow()
+    let save_cursor = getcurpos()
     call s:set_key('lastmod', s:hugo_now())
+    call setpos('.', save_cursor)
 endfun
 
 function! hugohelper#Highlight(language)
